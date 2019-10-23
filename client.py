@@ -1,17 +1,17 @@
 import socket
 
 
-HOST = socket.gethostbyname("192.168.0.104")
-PORT = 60000
+HOST = socket.gethostbyname("192.168.0.104")        # Write your IP Adress Here
+PORT = 8080
 s = socket.socket()
 
 s.connect((HOST, PORT))
-s.send(b"Hello server!")
+s.send(b'Hello server!')
 
 with open('received_file', 'wb') as f:
-    print("file opened")
+    print('File opened')
     while True:
-        print('receiving data...')
+        print('Receiving data...')
         data = s.recv(1024)
         print('data=%s', (data))
         if not data:
@@ -21,4 +21,4 @@ with open('received_file', 'wb') as f:
 f.close()
 print('Succesfully get the file')
 s.close()
-print('connection closed')
+print('Connection closed')
