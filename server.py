@@ -7,13 +7,13 @@ s.bind((HOST, PORT))
 s.listen(5)
 
 
-print("Server Listening........")
+print('Server Listening...')
 
 while True:
     conn, addr = s.accept()
-    print("Got connection from", addr)
+    print('Got connection from', addr)
     data = conn.recv(1024)
-    print("Server received", repr(data))
+    print('Server received', repr(data))
 
     filename = "myText.txt"
     f = open(filename, "rb")
@@ -24,6 +24,6 @@ while True:
         l = f.read(1024)
     f.close()
 
-    print("Done Sending")
-    conn.send(b"Thank you for connecting")
+    print('Done Sending')
+    conn.send(b'Thank you for connecting')
     conn.close()
